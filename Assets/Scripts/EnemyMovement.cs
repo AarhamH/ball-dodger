@@ -10,4 +10,10 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate() {
         transform.Translate(enemySpeed*Time.deltaTime,0,0);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.CompareTag("Enemy") || collision.CompareTag("Point")) {
+            Destroy(gameObject);
+        }
+    }
 }
